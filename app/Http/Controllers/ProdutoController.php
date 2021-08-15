@@ -7,14 +7,14 @@ use Illuminate\Http\Request;
 class ProdutoController extends Controller
 {
     public function index(){
-        return 'Raiz de produtos';
+        return view('produto.index');
     }
 
     public function view($nome){
-        return 'Mostrando produtos {$nome}';
+        return view('produto.view', ['nome' => $nome ]);
     }
 
     public function create(){
-        return 'Inserindo produto';
+        return view('produto.create');
     }
 }
