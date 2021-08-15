@@ -1,8 +1,9 @@
 @extends('templates.layout')
 @section('title', 'View')
 @section('content')
+    <h1>Visualizar</h1>
 
-    <h1>Mostrando produto</h1>
-    <p>O produto é <?php echo $nome; ?></p>
-
+    <p>Produto: {{$prod->nome}}</p>
+    <p>Preço: <?php echo $prod->valor; ?></p>
+    <p>{{$prod->descricao}}</p>
 @endsection
