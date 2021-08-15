@@ -10,7 +10,7 @@ class ProdutoController extends Controller
         return 'Raiz de produtos';
     }
 
-    public function show($nome){
+    public function view($nome){
         return 'Mostrando produtos {$nome}';
     }
 

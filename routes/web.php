@@ -19,8 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', HomeController::class);
 
 // {nome} é um parâmetro passado para a rota
-Route::get('produto/{nome}', [ProdutoController::class, 'view']);
-
 Route::get('produto/inserir', [ProdutoController::class, 'create']);
+
+Route::get('produto/{nome}', [ProdutoController::class, 'view']);
 
 Route::get('produto', [ProdutoController::class, 'index']);
