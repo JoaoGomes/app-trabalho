@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProdutoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Controladora da Home
+Route::get('/', HomeController::class);
 
-Route::get('mostrar/{algo}', function ($algo) {
-    return "Você está vendo $algo";
-});
+// {nome} é um parâmetro passado para a rota
+Route::get('produto/{nome}', [ProdutoController::class, 'view']);
+
+Route::get('produto/inserir', [ProdutoController::class, 'create']);
+
+Route::get('produto', [ProdutoController::class, 'index']);
