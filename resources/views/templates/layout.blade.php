@@ -18,29 +18,41 @@
       </a>
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Features</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
+        <li><a href="{{ route('home.root')}}" class="nav-link px-2 link-secondary">Home</a></li>
+        <li><a href="{{ route('produto')}}" class="nav-link px-2 link-dark">Produtos</a></li>
+        <li><a href="{{ route('produto.inserir')}}" class="nav-link px-2 link-dark">Inserir produto</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
       </ul>
 
+      <!-- Botões do template - Não utilizados
       <div class="col-md-3 text-end">
         <button type="button" class="btn btn-outline-primary me-2">Login</button>
         <button type="button" class="btn btn-primary">Sign-up</button>
       </div>
+      -->
+
+    <div>
+        @if (session('usuario'))
+        Usuário autenticado: <br>
+        {{session('usuario.nome')}} | {{session('usuario.papel')}}
+        <br>
+        <a href="{{ route('usuario.logout')}}">
+          <button type="button" class="btn btn-outline-primary me-2">Logout</button>
+        </a>
+        @else
+        <a href="{{ route('usuario.index')}}"> 
+          <button type="button" class="btn btn-outline-primary me-2">Login</button>
+        </a>
+        <a href="{{ route('users.register')}}"> 
+          <button type="button" class="btn btn-primary">Register</button>
+        </a>
+
+        @endif
+    </div>
     </header>
     <!-- Fim do cabeçalho escolhido no site do Bootstrap-->
     
-    <div>
-        @if (session('usuario'))
-        Usuário autenticado: {{session('usuario.nome')}} | {{session('usuario.papel')}}
-        <br>
-        <a href="{{ route('usuario.logout')}}">Sair</a>
-        @else
-        <a href="{{ route('usuario.index')}}">Autenticar</a>
-        @endif
-    </div>
     
     <main class="container pt-2">
         @yield('content')

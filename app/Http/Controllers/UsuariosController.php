@@ -36,4 +36,26 @@ class UsuariosController extends Controller
 
         return redirect()->route('usuario.index');
     }
+
+    public function register(Request $form){
+        $email = $form->email;
+        $senha = $form->senha;
+        $username = $form->username;
+
+        return redirect()->route('home.root');
+    }
+
+    public function insert(Request $formulario)
+    {
+//        $produto = new User();
+//        $produto->nome = $formulario->nome;
+//        $produto->valor = $formulario->valor;
+//        $produto->descricao = $formulario->descricao;
+
+//        $produto->save();
+
+        return redirect()->route('produto');
+
+    }
+
 }

@@ -21,6 +21,10 @@ use Illuminate\Support\Facades\Route;
 });*/
 
 Route::get('/', HomeController::class);
+Route::get('/home', [HomeController::class, 'root']) ->name('home.root');
+
+Route::get('/home/register', [UsuariosController::class, 'register']) ->name('users.register');
+
 
 Route::get('produto/inserir', [ProdutoController::class, 'create'])->name('produto.inserir');
 Route::get('produto/{id}', [ProdutoController::class, 'view'])->name('produto.descricao');

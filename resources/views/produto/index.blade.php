@@ -20,7 +20,7 @@
             <td>{{$prod->valor}}</td>
             <td><a href="{{route('produto.editar', $prod->id)}}">Editar</a></td>
             <td><a href="{{route('produto.deletar', $prod->id)}}">Deletar</a></td>
-            <td><img src="{{ asset('img/meia.jpg') }}"></td>
+            <!--<td><img src="{{ asset('img/meia.jpg') }}"></td> -->
         </tr>
         @endforeach
     </table>
