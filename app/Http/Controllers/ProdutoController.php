@@ -68,3 +68,8 @@ class ProdutoController extends Controller
         return redirect()->route('produto');
     }
 }
+
+
+// Editores de texto
+// Editor WYSIWYG
+// Tiny MCE
