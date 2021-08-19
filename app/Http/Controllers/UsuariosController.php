@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Models\Usuario;
 
 class UsuariosController extends Controller
@@ -16,9 +17,10 @@ class UsuariosController extends Controller
         $email = $form->email;
         $senha = $form->senha;
 
-        $usuario = Usuario::select('id', 'nome', 'email', 'papel')->where('email', $email)->where('senha', $senha)->get();
+//        $usuario = Usuario::select('id', 'nome', 'email', 'papel')->where('email', $email)->where('senha', $senha)->get();
+        $usuario = Usuario::select('id', 'nome', 'email', 'senha', 'papel')->where('email', $email) -> get();
+        if(Hash::check($senha, $usuario[0]->senha)){
 
-        if($usuario->count()){
             $form->session()->put('usuario', $usuario[0]);
 
             return redirect()->route('produto');
@@ -47,7 +49,7 @@ class UsuariosController extends Controller
         $user = new Usuario();
         $user->nome = $formulario->nome;
         $user->email = $formulario->email;
-        $user->senha = $formulario->senha;
+        $user->senha = Hash::make($formulario->senha);
         $user->papel = $formulario->papel;
 
         $user->save();
