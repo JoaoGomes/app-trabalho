@@ -37,14 +37,14 @@
         Usuário autenticado: <br>
         {{session('usuario.nome')}} | {{session('usuario.papel')}}
         <br>
-        <a href="{{ route('usuario.logout')}}">
+        <a href="{{ route('usuarios.logout')}}">
           <button type="button" class="btn btn-outline-primary me-2">Logout</button>
         </a>
         @else
-        <a href="{{ route('usuario.index')}}"> 
+        <a href="{{ route('usuarios.index')}}"> 
           <button type="button" class="btn btn-outline-primary me-2">Login</button>
         </a>
-        <a href="{{ route('users.register')}}"> 
+        <a href="{{ route('usuarios.register')}}"> 
           <button type="button" class="btn btn-primary">Register</button>
         </a>
 

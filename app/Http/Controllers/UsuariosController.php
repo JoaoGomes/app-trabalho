@@ -11,6 +11,7 @@ class UsuariosController extends Controller
     public function index(){
         return view('usuarios.index');
     }
+
     public function login(Request $form){
         $email = $form->email;
         $senha = $form->senha;
@@ -24,7 +25,7 @@ class UsuariosController extends Controller
 
         } else {
 
-            return redirect()->route('usuario.index')->with('error', 'Usuário ou senha inválidos!');
+            return redirect()->route('usuarios.index')->with('error', 'Usuário ou senha inválidos!');
 
         }
 
@@ -34,27 +35,24 @@ class UsuariosController extends Controller
     public function logout(){
         session()->forget('usuario');
 
-        return redirect()->route('usuario.index');
-    }
-
-    public function register(Request $form){
-        $email = $form->email;
-        $senha = $form->senha;
-        $username = $form->username;
-
         return redirect()->route('home.root');
     }
 
-    public function insert(Request $formulario)
+    public function create()
     {
-//        $produto = new User();
-//        $produto->nome = $formulario->nome;
-//        $produto->valor = $formulario->valor;
-//        $produto->descricao = $formulario->descricao;
+        return view('usuarios.create');
+    }
 
-//        $produto->save();
+    public function register(Request $formulario){
+        $user = new Usuario();
+        $user->nome = $formulario->nome;
+        $user->email = $formulario->email;
+        $user->senha = $formulario->senha;
+        $user->papel = $formulario->papel;
 
-        return redirect()->route('produto');
+        $user->save();
+
+        return redirect()->route('home.root');
 
     }
 

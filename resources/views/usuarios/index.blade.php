@@ -7,7 +7,7 @@
         {{session('error')}}
     @endif
 
-    <form method="post" action="{{route('usuario.login')}}">
+    <form method="post" action="{{route('usuarios.login')}}">
         @csrf
         <input type="text" name="email">
         <br>
