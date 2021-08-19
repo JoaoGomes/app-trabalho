@@ -44,3 +44,7 @@ Route::get('logout', [UsuariosController::class, 'logout']) ->name('usuarios.log
 
 // Rota para página temporária
 Route::get('/temporary', [UsuariosController::class, 'temporary'])->name('usuarios.temporary');
+
+// Rota para Perfil dos usuários
+Route::get('/user', [UsuariosController::class, 'authors']) ->name('usuarios.authors');
+Route::get('/user/{id}', [UsuariosController::class, 'view']) ->name('usuarios.profile');

@@ -61,5 +61,20 @@ class UsuariosController extends Controller
         return view('usuarios.temporary');
     }
 
+    public function view($id)
+    {
+        $user = Usuario::find($id);
+
+        return view('usuarios.view', ['id' => $id, 'user' => $user]);
+    }
+
+    public function authors()
+    {
+
+        $users = Usuario::orderBy('id', 'desc')->get();
+
+        return view('usuarios.authors', ['users' => $users]);
+    }
+
 
 }
