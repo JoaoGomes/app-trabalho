@@ -20,9 +20,9 @@
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li><a href="{{ route('home.root')}}" class="nav-link px-2 link-secondary">Home</a></li>
         <li><a href="{{ route('produto')}}" class="nav-link px-2 link-dark">Produtos</a></li>
-        <li><a href="{{ route('produto.inserir')}}" class="nav-link px-2 link-dark">Inserir produto</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
+        <li><a href="{{ route('usuarios.temporary')}}" class="nav-link px-2 link-dark">Autores mais lidos</a></li>
+        <li><a href="{{ route('usuarios.temporary')}}" class="nav-link px-2 link-dark">Textos mais lidos</a></li>
+        <li><a href="{{ route('usuarios.temporary')}}" class="nav-link px-2 link-dark">Sobre</a></li>
       </ul>
 
       <!-- Botões do template - Não utilizados

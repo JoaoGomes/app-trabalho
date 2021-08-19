@@ -41,3 +41,6 @@ Route::get('produto/{prod}/delete', [ProdutoController::class, 'delete'])->name(
 Route::get('login', [UsuariosController::class, 'index']) ->name('usuarios.index');
 Route::post('login', [UsuariosController::class, 'login']) ->name('usuarios.login');
 Route::get('logout', [UsuariosController::class, 'logout']) ->name('usuarios.logout');
+
+// Rota para página temporária
+Route::get('/temporary', [UsuariosController::class, 'temporary'])->name('usuarios.temporary');

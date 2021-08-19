@@ -56,4 +56,10 @@ class UsuariosController extends Controller
 
     }
 
+    public function temporary()
+    {
+        return view('usuarios.temporary');
+    }
+
+
 }
