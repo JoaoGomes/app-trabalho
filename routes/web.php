@@ -20,8 +20,8 @@ use Illuminate\Support\Facades\Route;
     return view('welcome');
 });*/
 
-// Rota Inicial
-Route::get('/', HomeController::class);
+// Rota Inicial - Ambos os caminhos indicam para o mesmo endereço
+Route::get('/', [HomeController::class, 'root']) ->name('home.root');
 Route::get('/home', [HomeController::class, 'root']) ->name('home.root');
 
 // Rotas para criar novo usuário
@@ -48,3 +48,7 @@ Route::get('/temporary', [UsuariosController::class, 'temporary'])->name('usuari
 // Rota para Perfil dos usuários
 Route::get('/user', [UsuariosController::class, 'authors']) ->name('usuarios.authors');
 Route::get('/user/{id}', [UsuariosController::class, 'view']) ->name('usuarios.profile');
+
+// Rota para escrever novo texto
+Route::get('/new', [UsuariosController::class, 'writing']) ->name('usuarios.writing');
+Route::post('/new', [UsuariosController::class, 'posting']) ->name('usuarios.posting');

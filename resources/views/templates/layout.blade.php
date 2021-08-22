@@ -19,7 +19,6 @@
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li><a href="{{ route('home.root')}}" class="nav-link px-2 link-secondary">Home</a></li>
-        <li><a href="{{ route('produto')}}" class="nav-link px-2 link-dark">Produtos</a></li>
         <li><a href="{{ route('usuarios.authors')}}" class="nav-link px-2 link-dark">Autores mais lidos</a></li>
         <li><a href="{{ route('usuarios.temporary')}}" class="nav-link px-2 link-dark">Textos mais lidos</a></li>
         <li><a href="{{ route('usuarios.temporary')}}" class="nav-link px-2 link-dark">Sobre</a></li>
@@ -30,14 +29,13 @@
             <a href="{{ route('usuarios.temporary')}}" class="nav-link px-2 link-dark">Perfil</button>
             </a>
           </li>
+
           <li>
             <a href="{{ route('usuarios.temporary')}}">
               <button type="button" class="btn btn-outline-primary me-2">Novo texto</button>
             </a>
           </li>
         @endif
-
-
 
       </ul>
 

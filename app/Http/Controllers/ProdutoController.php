@@ -73,3 +73,5 @@ class ProdutoController extends Controller
 // Editores de texto
 // Editor WYSIWYG
 // Tiny MCE
+// summernote
+// ckeditor

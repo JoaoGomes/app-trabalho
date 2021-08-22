@@ -17,7 +17,6 @@ class UsuariosController extends Controller
         $email = $form->email;
         $senha = $form->senha;
 
-//        $usuario = Usuario::select('id', 'nome', 'email', 'papel')->where('email', $email)->where('senha', $senha)->get();
         $usuario = Usuario::select('id', 'nome', 'email', 'senha', 'papel')->where('email', $email) -> get();
         if(Hash::check($senha, $usuario[0]->senha)){
 
@@ -72,11 +71,27 @@ class UsuariosController extends Controller
 
     public function authors()
     {
-
+        // Ordena os autores pelo ID - Ideia é mudar para ordenar pelo número de textos ou alfabeticamente
         $users = Usuario::orderBy('id', 'desc')->get();
 
         return view('usuarios.authors', ['users' => $users]);
     }
+
+    /* Método para criar novo texto
+    public function writing(Request $formulario){
+        $text = new Texto();
+        $user->nome = $formulario->nome;
+        $user->email = $formulario->email;
+        $user->senha = Hash::make($formulario->senha);
+        $user->papel = $formulario->papel;
+
+        $user->save();
+
+        return redirect()->route('home.root');
+
+    }
+    */
+
 
 
 }

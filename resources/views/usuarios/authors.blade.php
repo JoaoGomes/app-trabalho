@@ -1,7 +1,7 @@
 @extends('templates.layout')
 @section('title', 'Lista de autores')
 @section('content')
-    <h1>Lista de Autores></h1>
+    <h1>Lista de Autores</h1>
 
     <table border="1">
         <tr>
@@ -13,8 +13,8 @@
         @foreach($users as $user)
         <tr>
             <td><a href="{{route('usuarios.profile', $user->id)}}">{{$user->nome}}</a></td>
-            <td><a href="{{route('usuarios.profile', $user->id)}}">{{$user->nome}}</a></td>
-            <td><a href="{{route('usuarios.profile', $user->id)}}">{{$user->nome}}</a></td>
+            <td><a href="{{route('usuarios.profile', $user->id)}}">{{$user->id}}</a></td>
+            <td><a href="{{route('usuarios.profile', $user->id)}}">{{$user->papel}}</a></td>
         </tr>
 
         @endforeach
