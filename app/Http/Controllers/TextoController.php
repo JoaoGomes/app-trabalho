@@ -45,4 +45,21 @@ class TextoController extends Controller
 
     }
 
+    public function editing(Texto $texto)
+    {
+        return view('textos.edit', ['texto'=>$texto]);
+    }
+
+    public function publishing(Texto $texto, Request $novo_texto)
+    {
+        $texto->titulo = $novo_texto->titulo;
+        $texto->texto = $novo_texto->texto;
+
+        $texto->save();
+
+        return redirect()->route('home.root');
+
+    }
+
+
 }

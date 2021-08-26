@@ -8,6 +8,10 @@
     <p>Nome: <?php echo $user->nome; ?></p>
     <p>E-mail de contato: <?php echo $user->email; ?></p> 
 
+    <a href="{{ route('usuarios.editing', $user)}}">
+        <button type="button" class="btn btn-outline-primary me-2">Editar</button>
+    </a>
+
 
     <h2>Lista de textos</h2>
 

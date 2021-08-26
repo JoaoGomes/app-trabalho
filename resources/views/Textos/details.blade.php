@@ -14,6 +14,7 @@
         <!-- Falta conectar o botão com um contador de likes - acesso ao banco de dados -->
             <button type="button" class="btn btn-outline-primary me-2">Like</button>
         </a>
+        <a href="{{route('textos.editing', $texto->id)}}">Editar</a>
         @endif
     </div>
 

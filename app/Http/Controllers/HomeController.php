@@ -24,7 +24,7 @@ class HomeController extends Controller
     public function texts()
     {
         // Ordena os textos pela última data de modificação
-        $textos = Texto::orderBy('updated_at', 'asc')->get();
+        $textos = Texto::orderBy('updated_at', 'desc')->get();
 
         return view('home.root', ['textos' => $textos]);
     }

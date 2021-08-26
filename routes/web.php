@@ -42,9 +42,17 @@ Route::get('/temporary', [UsuariosController::class, 'temporary'])->name('usuari
 Route::get('/user', [UsuariosController::class, 'authors']) ->name('usuarios.authors');
 Route::get('/user/{id}', [UsuariosController::class, 'view']) ->name('usuarios.profile');
 
+// Rota para editar um perfil
+Route::get('user/{user}/edit', [UsuariosController::class, 'editing']) ->name('usuarios.editing');
+Route::put('user/{user}/edit', [UsuariosController::class, 'publishing']) ->name('usuarios.publishing');
+
 // Rota para escrever novo texto
 Route::get('/new', [TextoController::class, 'writing']) ->name('textos.writing');
 Route::post('/new', [TextoController::class, 'posting']) ->name('textos.posting');
+
+// Rota para editar um texto
+Route::get('text/{texto}/edit', [TextoController::class, 'editing']) ->name('textos.editing');
+Route::put('text/{texto}/edit', [TextoController::class, 'publishing']) ->name('textos.publishing');
 
 // Rota para os textos
 Route::get('/text', [TextoController::class, 'texts']) ->name('textos.index');

@@ -84,4 +84,20 @@ class UsuariosController extends Controller
         return view('usuarios.authors', ['users' => $users]);
     }
 
+    public function editing(Usuario $user)
+    {
+        return view('usuarios.edit', ['user'=>$user]);
+    }
+
+    public function publishing(Usuario $user, Request $novo_usuario)
+    {
+        $user->nome = $novo_usuario->nome;
+        $user->email = $novo_usuario->email;
+
+        $user->save();
+
+        return redirect()->route('home.root');
+
+    }
+
 }
