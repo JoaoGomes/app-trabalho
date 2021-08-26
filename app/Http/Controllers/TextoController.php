@@ -18,6 +18,7 @@ class TextoController extends Controller
         $novo_texto = new Texto();
         $novo_texto->author = session('usuario.nome');
         $novo_texto->texto = $texto->wysiwyg;
+        $novo_texto->titulo = $texto->titulo;
 
         $novo_texto->save();
 

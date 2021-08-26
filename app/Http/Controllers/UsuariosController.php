@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Usuario;
+use App\Models\Texto;
+
 
 class UsuariosController extends Controller
 {
@@ -54,6 +56,9 @@ class UsuariosController extends Controller
 
         $user->save();
 
+        // Por que não podemos simplesmente chamar a função login() com o usuário criado?
+        // login($user);
+
         return redirect()->route('home.root');
 
     }
@@ -66,8 +71,9 @@ class UsuariosController extends Controller
     public function view($id)
     {
         $user = Usuario::find($id);
+        $text = Texto::find($id);
 
-        return view('usuarios.view', ['id' => $id, 'user' => $user]);
+        return view('usuarios.view', ['id' => $id, 'user' => $user, 'text' => $text]);
     }
 
     public function authors()

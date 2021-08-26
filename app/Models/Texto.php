@@ -9,5 +9,5 @@ class Texto extends Model
 {
     use HasFactory;
     
-    public $timestamps = false;
+    //public $timestamps = false;
 }
