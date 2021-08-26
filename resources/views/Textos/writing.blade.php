@@ -10,4 +10,13 @@
         <input type="submit" name="submit" value="SUBMIT">
     </form>
 
+    <!--
+    <form method="post" action="" enctype="multipart/form-data">
+        
+        <div class="form-group">
+            <textarea class="ckeditor form-control" name="wysiwyg-editor"></textarea>
+        </div>
+    </form>
+    -->
+
 @endsection
