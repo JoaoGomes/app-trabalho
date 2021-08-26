@@ -77,6 +77,10 @@ class UsuariosController extends Controller
         return view('usuarios.authors', ['users' => $users]);
     }
 
+    public function writing()
+    {
+        return view('textos.writing');
+    }
     /* Método para criar novo texto
     public function writing(Request $formulario){
         $text = new Texto();

@@ -31,7 +31,7 @@
           </li>
 
           <li>
-            <a href="{{ route('usuarios.temporary')}}">
+            <a href="{{ route('textos.writing')}}">
               <button type="button" class="btn btn-outline-primary me-2">Novo texto</button>
             </a>
           </li>
