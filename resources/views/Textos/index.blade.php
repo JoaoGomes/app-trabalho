@@ -7,6 +7,8 @@
         <tr>
             <th>Id</th>
             <th>Autor</th>
+            <th>Link</th>
+            <th>Outro Link</th>
         </tr>
 
         @foreach($textos as $texto)
@@ -14,6 +16,7 @@
             <td>{{$texto->id_text}}</td>
             <td>{{$texto->author}}</td>
             <td><a href="{{route('usuarios.temporary')}}">Link</a></td>
+            <td><a href="{{route('textos.info', $texto->id_text)}}">Teste</a></td>
         </tr>
 
         @endforeach

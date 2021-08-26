@@ -33,11 +33,11 @@ class TextoController extends Controller
     }
 
 
-    public function view($id)
+    public function read($id_text)
     {
-        $texto = Texto::find($id);
+        $texto = Texto::find($id_text);
 
-        return view('textos.details', ['id' => $id, 'texto' => $texto]);
+        return view('textos.details', ['id_text' => $id_text, 'texto' => $texto]);
 
     }
 

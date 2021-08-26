@@ -56,7 +56,7 @@ Route::post('/new', [TextoController::class, 'posting']) ->name('textos.posting'
 
 // Rota para os textos
 Route::get('/text', [TextoController::class, 'texts']) ->name('textos.index');
-Route::get('/text/{id}', [TextoController::class, 'view']) ->name('textos.details');
+Route::get('/text/{id_text}', [TextoController::class, 'read']) ->name('textos.info');
 
 
 // Rota para upload de imagem
