@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\TextoController;
 use App\Http\Controllers\UsuariosController;
 use Illuminate\Support\Facades\Route;
 
@@ -50,5 +51,13 @@ Route::get('/user', [UsuariosController::class, 'authors']) ->name('usuarios.aut
 Route::get('/user/{id}', [UsuariosController::class, 'view']) ->name('usuarios.profile');
 
 // Rota para escrever novo texto
-Route::get('/new', [UsuariosController::class, 'writing']) ->name('usuarios.writing');
-Route::post('/new', [UsuariosController::class, 'posting']) ->name('usuarios.posting');
+Route::get('/new', [TextoController::class, 'writing']) ->name('textos.writing');
+Route::post('/new', [TextoController::class, 'posting']) ->name('textos.posting');
+
+// Rota para os textos
+Route::get('/text', [TextoController::class, 'texts']) ->name('textos.index');
+Route::get('/text/{id}', [TextoController::class, 'view']) ->name('textos.details');
+
+
+// Rota para upload de imagem
+Route::post('ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');

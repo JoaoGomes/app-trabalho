@@ -22,7 +22,7 @@ class UsuariosController extends Controller
 
             $form->session()->put('usuario', $usuario[0]);
 
-            return redirect()->route('produto');
+            return redirect()->route('home.root');
 
         } else {
 
@@ -44,7 +44,8 @@ class UsuariosController extends Controller
         return view('usuarios.create');
     }
 
-    public function register(Request $formulario){
+    public function register(Request $formulario)
+    {
         $user = new Usuario();
         $user->nome = $formulario->nome;
         $user->email = $formulario->email;
@@ -76,26 +77,5 @@ class UsuariosController extends Controller
 
         return view('usuarios.authors', ['users' => $users]);
     }
-
-    public function writing()
-    {
-        return view('textos.writing');
-    }
-    /* Método para criar novo texto
-    public function writing(Request $formulario){
-        $text = new Texto();
-        $user->nome = $formulario->nome;
-        $user->email = $formulario->email;
-        $user->senha = Hash::make($formulario->senha);
-        $user->papel = $formulario->papel;
-
-        $user->save();
-
-        return redirect()->route('home.root');
-
-    }
-    */
-
-
 
 }

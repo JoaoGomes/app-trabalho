@@ -74,13 +74,21 @@
 
 </body>
 
-<!-- Trecho adicionado para habilitar o CKEditor 
+<!-- Trecho adicionado para habilitar o CKEditor -->
   <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
   <script type="text/javascript">
       $(document).ready(function () {
           $('.ckeditor').ckeditor();
       });
   </script>
-  -->
+
+<!-- Trecho adicionado para habilitar upload de imagem pelo CKEditor -->
+  <script type="text/javascript">
+    CKEDITOR.replace('wysiwyg-editor', {
+        filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+        filebrowserUploadMethod: 'form'
+    });
+</script>
+
 
 </html>
