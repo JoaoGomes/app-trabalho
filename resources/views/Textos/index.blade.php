@@ -5,18 +5,18 @@
 
     <table border="1">
         <tr>
-            <th>Id</th>
+            <th>Título</th>
             <th>Autor</th>
-            <th>Link</th>
-            <th>Outro Link</th>
+            <th>Visualizações</th>
+            <th>Likes</th>
         </tr>
 
         @foreach($textos as $texto)
             <tr>
-                <td>{{$texto->id}}</td>
-                <td>{{$texto->author}}</td>
-                <td><a href="{{route('usuarios.temporary')}}">Link</a></td>
-                <td><a href="{{route('textos.info', $texto->id)}}">Teste</a></td>
+                <td><a href="{{route('textos.info', $texto->id)}}">{{$texto->titulo}}</a></td>
+                <td><a href="{{route('usuarios.profile', $texto->id_author)}}">{{$texto->author}}</a></td>
+                <td>{{$texto->visualizacoes}}</td>
+                <td>{{$texto->likes}}</td>
             </tr>
         @endforeach
     </table>

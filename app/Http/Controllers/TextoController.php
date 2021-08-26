@@ -17,6 +17,9 @@ class TextoController extends Controller
     {
         $novo_texto = new Texto();
         $novo_texto->author = session('usuario.nome');
+        $novo_texto->id_author = session('usuario.id');
+        $novo_texto->visualizacoes = 0;
+        $novo_texto->likes = 0;
         $novo_texto->texto = $texto->wysiwyg;
         $novo_texto->titulo = $texto->titulo;
 
@@ -28,7 +31,7 @@ class TextoController extends Controller
     public function texts()
     {
         // Ordena os textos pela última data de modificação
-        $textos = Texto::orderBy('updated_at', 'asc')->get();
+        $textos = Texto::orderBy('visualizacoes', 'desc')->get();
 
         return view('textos.index', ['textos' => $textos]);
     }

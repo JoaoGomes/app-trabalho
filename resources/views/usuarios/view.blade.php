@@ -7,7 +7,7 @@
     <p>Produto: {{$user->name}}</p> -->
     <p>Nome: <?php echo $user->nome; ?></p>
     <p>E-mail de contato: <?php echo $user->email; ?></p> 
-    <p>Textos</p> 
+
 
     <h2>Lista de textos</h2>
 

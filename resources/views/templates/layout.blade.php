@@ -20,7 +20,7 @@
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li><a href="{{ route('home.root')}}" class="nav-link px-2 link-secondary">Home</a></li>
         <li><a href="{{ route('usuarios.authors')}}" class="nav-link px-2 link-dark">Autores mais lidos</a></li>
-        <li><a href="{{ route('usuarios.temporary')}}" class="nav-link px-2 link-dark">Textos mais lidos</a></li>
+        <li><a href="{{ route('textos.index')}}" class="nav-link px-2 link-dark">Textos mais lidos</a></li>
         <li><a href="{{ route('home.about')}}" class="nav-link px-2 link-dark">Sobre</a></li>
 
         <!-- Área reservada para login -->

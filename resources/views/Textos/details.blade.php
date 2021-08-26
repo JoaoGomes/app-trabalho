@@ -5,5 +5,17 @@
 
     <h3><a href="{{route('usuarios.profile', $texto->id_author)}}">{{$texto->author}}</a></h3>
     <p><?php echo $texto->texto; ?></p> 
+    <p>Este texto já teve <?php echo $texto->visualizacoes; ?> visualizações.</p>
+    <p>Este texto já teve <?php echo $texto->likes; ?> likes.</p>
+
+    <div>
+        @if (session('usuario'))
+        <a>
+        <!-- Falta conectar o botão com um contador de likes - acesso ao banco de dados -->
+            <button type="button" class="btn btn-outline-primary me-2">Like</button>
+        </a>
+        @endif
+    </div>
+
 
 @endsection

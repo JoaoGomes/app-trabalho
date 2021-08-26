@@ -19,7 +19,7 @@ class UsuariosController extends Controller
         $email = $form->email;
         $senha = $form->senha;
 
-        $usuario = Usuario::select('id', 'nome', 'email', 'senha', 'papel')->where('email', $email) -> get();
+        $usuario = Usuario::select('id', 'nome', 'email', 'senha', 'fone')->where('email', $email) -> get();
         if(Hash::check($senha, $usuario[0]->senha)){
 
             $form->session()->put('usuario', $usuario[0]);
@@ -52,7 +52,7 @@ class UsuariosController extends Controller
         $user->nome = $formulario->nome;
         $user->email = $formulario->email;
         $user->senha = Hash::make($formulario->senha);
-        $user->papel = $formulario->papel;
+        $user->fone = $formulario->fone;
 
         $user->save();
 
