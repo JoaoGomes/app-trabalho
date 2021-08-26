@@ -12,13 +12,12 @@
         </tr>
 
         @foreach($textos as $texto)
-        <tr>
-            <td>{{$texto->id_text}}</td>
-            <td>{{$texto->author}}</td>
-            <td><a href="{{route('usuarios.temporary')}}">Link</a></td>
-            <td><a href="{{route('textos.info', $texto->id_text)}}">Teste</a></td>
-        </tr>
-
+            <tr>
+                <td>{{$texto->id}}</td>
+                <td>{{$texto->author}}</td>
+                <td><a href="{{route('usuarios.temporary')}}">Link</a></td>
+                <td><a href="{{route('textos.info', $texto->id)}}">Teste</a></td>
+            </tr>
         @endforeach
     </table>
 

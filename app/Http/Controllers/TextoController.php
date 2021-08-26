@@ -27,8 +27,8 @@ class TextoController extends Controller
 
     public function texts()
     {
-        // Ordena os textos pelo ID - Ideia é mudar para ordenar pelo número de textos ou alfabeticamente
-        $textos = Texto::orderBy('id_text', 'desc')->get();
+        // Ordena os textos pela última data de modificação
+        $textos = Texto::orderBy('updated_at', 'asc')->get();
 
         return view('textos.index', ['textos' => $textos]);
     }

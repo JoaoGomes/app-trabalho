@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Texto;
 
 class HomeController extends Controller
 {
@@ -14,6 +15,18 @@ class HomeController extends Controller
     public function root()
     {
         return view('home.root');
+    }
+
+    public function about()
+    {
+        return view('home.about');
+    }
+    public function texts()
+    {
+        // Ordena os textos pela última data de modificação
+        $textos = Texto::orderBy('updated_at', 'desc')->get();
+
+        return view('home.root', ['textos' => $textos]);
     }
 
 }

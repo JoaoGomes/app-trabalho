@@ -21,7 +21,7 @@
         <li><a href="{{ route('home.root')}}" class="nav-link px-2 link-secondary">Home</a></li>
         <li><a href="{{ route('usuarios.authors')}}" class="nav-link px-2 link-dark">Autores mais lidos</a></li>
         <li><a href="{{ route('usuarios.temporary')}}" class="nav-link px-2 link-dark">Textos mais lidos</a></li>
-        <li><a href="{{ route('usuarios.temporary')}}" class="nav-link px-2 link-dark">Sobre</a></li>
+        <li><a href="{{ route('home.about')}}" class="nav-link px-2 link-dark">Sobre</a></li>
 
         <!-- Área reservada para login -->
         @if (session('usuario'))
