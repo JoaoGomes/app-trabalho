@@ -14,7 +14,16 @@
         <!-- Falta conectar o botão com um contador de likes - acesso ao banco de dados -->
             <button type="button" class="btn btn-outline-primary me-2">Like</button>
         </a>
-        <a href="{{route('textos.editing', $texto->id)}}">Editar</a>
+
+        <!-- Área reservada para login -->
+        @if (session('usuario.id') == $texto->id_author)
+            <a href="{{route('textos.editing', $texto->id)}}">
+                <button type="button" class="btn btn-outline-primary">Editar texto</button>
+            </a>
+        @endif
+
+
+
         @endif
     </div>
 

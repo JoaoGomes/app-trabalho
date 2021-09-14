@@ -2,15 +2,17 @@
 @section('title', 'Perfil de autor')
 @section('content')
     <h1>Perfil de <?php echo $user->nome; ?></h1>
+    <br>
 
-    <!-- Esta linha não está funcionando por algum motivo 
-    <p>Produto: {{$user->name}}</p> -->
-    <p>Nome: <?php echo $user->nome; ?></p>
     <p>E-mail de contato: <?php echo $user->email; ?></p> 
+    <br>
 
-    <a href="{{ route('usuarios.editing', $user)}}">
-        <button type="button" class="btn btn-outline-primary me-2">Editar</button>
-    </a>
+    <!-- Área reservada para login -->
+    @if (session('usuario.id') == $user->id)
+        <a href="{{ route('usuarios.editing', $user)}}">
+            <button type="button" class="btn btn-outline-primary">Editar perfil</button>
+        </a>
+    @endif
 
 
     <h2>Lista de textos</h2>
@@ -22,12 +24,7 @@
             <th>Visualizações</th>
             <th>Likes</th>
         </tr>
-
-
         <tr>
-<!--            <td><a href="{{route('usuarios.profile', $text->id)}}">{{$text->nome}}</a></td>
-            <td><a href="{{route('usuarios.profile', $text->id)}}">{{$text->id}}</a></td>
-            -->
             <td>{{$text->id}}</td>
             <td><a href="{{route('textos.info', $text->id)}}">{{$text->titulo}}</a></td>
             <td>{{$text->visualizacoes}}</td>

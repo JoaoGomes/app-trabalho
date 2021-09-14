@@ -23,20 +23,6 @@
         <li><a href="{{ route('textos.index')}}" class="nav-link px-2 link-dark">Textos mais lidos</a></li>
         <li><a href="{{ route('home.about')}}" class="nav-link px-2 link-dark">Sobre</a></li>
 
-        <!-- Área reservada para login -->
-        @if (session('usuario'))
-          <li>
-            <a href="{{ route('usuarios.temporary')}}" class="nav-link px-2 link-dark">Perfil</button>
-            </a>
-          </li>
-
-          <li>
-            <a href="{{ route('textos.writing')}}">
-              <button type="button" class="btn btn-outline-primary me-2">Novo texto</button>
-            </a>
-          </li>
-        @endif
-
       </ul>
 
       <!-- Botões do template - Não utilizados
@@ -48,20 +34,28 @@
 
       <div>
         @if (session('usuario'))
-        Usuário autenticado: <br>
-        {{session('usuario.nome')}} | {{session('usuario.papel')}}
-        <br>
-        <a href="{{ route('usuarios.logout')}}">
-          <button type="button" class="btn btn-outline-primary me-2">Logout</button>
-        </a>
-        @else
-        <a href="{{ route('usuarios.index')}}"> 
-          <button type="button" class="btn btn-outline-primary me-2">Login</button>
-        </a>
-        <a href="{{ route('usuarios.register')}}"> 
-          <button type="button" class="btn btn-primary">Register</button>
-        </a>
+          Usuário autenticado: {{session('usuario.nome')}} <br>
 
+          <a href="{{ route('textos.writing')}}">
+            <button type="button" class="btn btn-outline-primary">Novo texto</button>
+          </a>
+
+          <a href="{{ route('usuarios.profile', session('usuario.id') ) }}">
+            <button type="button" class="btn btn-outline-primary">Perfil</button>
+          </a>
+
+          <a href="{{ route('usuarios.logout')}}">
+            <button type="button" class="btn btn-outline-primary">Logout</button>
+          </a>
+
+        @else
+          <a href="{{ route('usuarios.index')}}"> 
+            <button type="button" class="btn btn-outline-primary">Login</button>
+          </a>
+
+          <a href="{{ route('usuarios.register')}}"> 
+            <button type="button" class="btn btn-primary">Register</button>
+          </a>
         @endif
       </div>
     </header>

@@ -20,14 +20,19 @@ class UsuariosController extends Controller
         $senha = $form->senha;
 
         $usuario = Usuario::select('id', 'nome', 'email', 'senha', 'fone')->where('email', $email) -> get();
-        if(Hash::check($senha, $usuario[0]->senha)){
-
-            $form->session()->put('usuario', $usuario[0]);
-
-            return redirect()->route('home.root');
+        //var_dump($usuario);
+        //die;
+        // Teste se o usuário existe no banco de dados
+        if(!empty($usuario[0])){
+            // Teste se a senha bate com a senha no banco de dados
+            if(Hash::check($senha, $usuario[0]->senha)){
+                $form->session()->put('usuario', $usuario[0]);
+                return redirect()->route('home.root');
+            } else {
+                return redirect()->route('usuarios.index')->with('error', 'Usuário ou senha inválidos!');
+            }
 
         } else {
-
             return redirect()->route('usuarios.index')->with('error', 'Usuário ou senha inválidos!');
 
         }

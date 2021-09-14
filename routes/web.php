@@ -35,9 +35,6 @@ Route::get('login', [UsuariosController::class, 'index']) ->name('usuarios.index
 Route::post('login', [UsuariosController::class, 'login']) ->name('usuarios.login');
 Route::get('logout', [UsuariosController::class, 'logout']) ->name('usuarios.logout');
 
-// Rota para página temporária
-Route::get('/temporary', [UsuariosController::class, 'temporary'])->name('usuarios.temporary');
-
 // Rota para Perfil dos usuários
 Route::get('/user', [UsuariosController::class, 'authors']) ->name('usuarios.authors');
 Route::get('/user/{id}', [UsuariosController::class, 'view']) ->name('usuarios.profile');
@@ -61,3 +58,6 @@ Route::get('/text/{id_text}', [TextoController::class, 'read']) ->name('textos.i
 
 // Rota para upload de imagem
 Route::post('ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');
+
+// Rota para página temporária
+Route::get('/temporary', [UsuariosController::class, 'temporary'])->name('usuarios.temporary');
