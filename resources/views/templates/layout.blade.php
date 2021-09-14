@@ -25,35 +25,35 @@
 
       </ul>
 
-      <!-- Botões do template - Não utilizados
-      <div class="col-md-3 text-end">
-        <button type="button" class="btn btn-outline-primary me-2">Login</button>
-        <button type="button" class="btn btn-primary">Sign-up</button>
-      </div>
-      -->
-
       <div>
         @if (session('usuario'))
-          Usuário autenticado: {{session('usuario.nome')}} <br>
+          Usuário autenticado: <br>
+          <div>
+            <img style="vertical-align: middle; width: 50px; height: 50px; border-radius: 30%;" 
+                src="{{asset('img/' . session('usuario.imagem'))}}">
+            <br>          
+            {{session('usuario.nome')}} 
+          </div>
 
           <a href="{{ route('textos.writing')}}">
             <button type="button" class="btn btn-outline-primary">Novo texto</button>
           </a>
 
-          <a href="{{ route('usuarios.profile', session('usuario.id') ) }}">
+          <a href="{{ route('usuarios.profile', session('usuario.id')) }}">
             <button type="button" class="btn btn-outline-primary">Perfil</button>
           </a>
 
-          <a href="{{ route('usuarios.logout')}}">
+          <a href="{{ route('usuarios.logout') }}">
             <button type="button" class="btn btn-outline-primary">Logout</button>
           </a>
 
+
         @else
-          <a href="{{ route('usuarios.index')}}"> 
+          <a href="{{ route('usuarios.index') }}"> 
             <button type="button" class="btn btn-outline-primary">Login</button>
           </a>
 
-          <a href="{{ route('usuarios.register')}}"> 
+          <a href="{{ route('usuarios.register') }}"> 
             <button type="button" class="btn btn-primary">Register</button>
           </a>
         @endif

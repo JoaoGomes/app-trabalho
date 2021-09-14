@@ -19,7 +19,7 @@ class UsuariosController extends Controller
         $email = $form->email;
         $senha = $form->senha;
 
-        $usuario = Usuario::select('id', 'nome', 'email', 'senha', 'fone')->where('email', $email) -> get();
+        $usuario = Usuario::select('id', 'nome', 'email', 'senha', 'fone', 'imagem')->where('email', $email) -> get();
         //var_dump($usuario);
         //die;
         // Teste se o usuário existe no banco de dados
@@ -58,6 +58,7 @@ class UsuariosController extends Controller
         $user->email = $formulario->email;
         $user->senha = Hash::make($formulario->senha);
         $user->fone = $formulario->fone;
+        $user->imagem = $formulario->file('imagem')->store('','imagens');
 
         $user->save();
 
@@ -76,9 +77,9 @@ class UsuariosController extends Controller
     public function view($id)
     {
         $user = Usuario::find($id);
-        $text = Texto::find($id);
+        $texts = Texto::select('id', 'titulo', 'visualizacoes', 'likes')->where('id_author', $id) -> get();
 
-        return view('usuarios.view', ['id' => $id, 'user' => $user, 'text' => $text]);
+        return view('usuarios.view', ['id' => $id, 'user' => $user, 'texts' => $texts]);
     }
 
     public function authors()

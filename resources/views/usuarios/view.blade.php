@@ -14,7 +14,7 @@
         </a>
     @endif
 
-
+    <br>
     <h2>Lista de textos</h2>
 
     <table border="1">
@@ -24,13 +24,17 @@
             <th>Visualizações</th>
             <th>Likes</th>
         </tr>
+
+        @foreach($texts as $text)
         <tr>
             <td>{{$text->id}}</td>
             <td><a href="{{route('textos.info', $text->id)}}">{{$text->titulo}}</a></td>
             <td>{{$text->visualizacoes}}</td>
             <td>{{$text->likes}}</td>
         </tr>
+        @endforeach
 
     </table>
+
 
 @endsection
