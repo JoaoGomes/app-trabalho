@@ -28,11 +28,10 @@
       <div>
         @if (session('usuario'))
           Usuário autenticado: <br>
-          <div>
+          <div style="padding: 5px; font-size: 25px">
             <img style="vertical-align: middle; width: 50px; height: 50px; border-radius: 30%;" 
                 src="{{asset('img/' . session('usuario.imagem'))}}">
-            <br>          
-            {{session('usuario.nome')}} 
+            {{session('usuario.nome')}}
           </div>
 
           <a href="{{ route('textos.writing')}}">

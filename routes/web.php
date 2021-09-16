@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\TextoController;
 use App\Http\Controllers\UsuariosController;
@@ -55,6 +56,9 @@ Route::put('text/{texto}/edit', [TextoController::class, 'publishing']) ->name('
 Route::get('/text', [TextoController::class, 'texts']) ->name('textos.index');
 Route::get('/text/{id_text}', [TextoController::class, 'read']) ->name('textos.info');
 
+// Rota para curtidas
+Route::put('/likes', [LikeController::class, 'curtida_temp'])-> name('likes.curtida_temp');
+Route::put('/likes', [LikeController::class, 'curtida'])-> name('likes.curtida');
 
 // Rota para upload de imagem
 Route::post('ckeditor/upload', 'CKEditorController@upload')->name('ckeditor.image-upload');

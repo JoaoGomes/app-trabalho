@@ -3,20 +3,15 @@
 @section('content')
     <h1>Lista de Autores</h1>
 
-    <table border="1">
-        <tr>
-            <th>Autores</th>
-            <th>Número de textos</th>
-            <th>Visualizações</th>
-        </tr>
-
+    
+    <table border="1" style="margin-left: auto; margin-right: auto">
         @foreach($users as $user)
         <tr>
-            <td><a href="{{route('usuarios.profile', $user->id)}}">{{$user->nome}}</a></td>
-            <td><a href="{{route('usuarios.profile', $user->id)}}">{{$user->id}}</a></td>
-            <td><a href="{{route('usuarios.profile', $user->id)}}">{{$user->papel}}</a></td>
+            <td><div style="padding: 15px;">
+                <img style="vertical-align: middle; width: 50px; height: 50px; border-radius: 30%;" src="{{asset('img/' . $user->imagem)}}">
+            </div></td>
+            <td style="font-size: 20px; padding: 15px;"><a href="{{route('usuarios.profile', $user->id)}}">{{$user->nome}}</a></td>
         </tr>
-
         @endforeach
     </table>
 

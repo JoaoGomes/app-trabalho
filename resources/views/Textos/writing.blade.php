@@ -9,6 +9,7 @@
             @csrf
             <p><input type="text" name="titulo" placeholder="Insira um título"></p>
             <textarea class="ckeditor form-control" name="wysiwyg"></textarea>
+            <p>Foto: <input type="file" name="imagem_texto"></p>
             <p><input type="submit" class="btn btn-outline-primary me-2" value="Publicar"></p>
         </form>
     </div>

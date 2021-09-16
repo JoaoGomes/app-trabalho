@@ -20,8 +20,7 @@ class UsuariosController extends Controller
         $senha = $form->senha;
 
         $usuario = Usuario::select('id', 'nome', 'email', 'senha', 'fone', 'imagem')->where('email', $email) -> get();
-        //var_dump($usuario);
-        //die;
+
         // Teste se o usuário existe no banco de dados
         if(!empty($usuario[0])){
             // Teste se a senha bate com a senha no banco de dados
@@ -61,9 +60,6 @@ class UsuariosController extends Controller
         $user->imagem = $formulario->file('imagem')->store('','imagens');
 
         $user->save();
-
-        // Por que não podemos simplesmente chamar a função login() com o usuário criado?
-        // login($user);
 
         return redirect()->route('home.root');
 

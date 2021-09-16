@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Texto;
+use App\Models\Likes;
 
 class TextoController extends Controller
 {
@@ -22,6 +23,7 @@ class TextoController extends Controller
         $novo_texto->likes = 0;
         $novo_texto->texto = $texto->wysiwyg;
         $novo_texto->titulo = $texto->titulo;
+        $novo_texto->imagem_texto = $texto->file('imagem_texto')->store('', 'imagens');
 
         $novo_texto->save();
 
@@ -40,8 +42,10 @@ class TextoController extends Controller
     public function read($id_text)
     {
         $texto = Texto::find($id_text);
+        $temp = Likes::select('id')->where('id_texto', $id_text) -> get();
+        $like = count($temp);
 
-        return view('textos.details', ['id_text' => $id_text, 'texto' => $texto]);
+        return view('textos.details', ['id_text' => $id_text, 'texto' => $texto, 'likes' => $like]);
 
     }
 
@@ -52,13 +56,14 @@ class TextoController extends Controller
 
     public function publishing(Texto $texto, Request $novo_texto)
     {
+        $texto->author = session('usuario.nome');
+        $texto->id_author = session('usuario.id');
         $texto->titulo = $novo_texto->titulo;
-        $texto->texto = $novo_texto->texto;
+        $texto->texto = $novo_texto->wysiwyg;
 
         $texto->save();
 
         return redirect()->route('home.root');
-
     }
 
 
