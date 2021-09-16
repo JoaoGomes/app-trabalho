@@ -1,6 +1,9 @@
 @extends('templates.layout')
 @section('title', 'Perfil de autor')
 @section('content')
+    
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style_author.css') }}" >
+
     <h1>Perfil de <?php echo $user->nome; ?></h1>
     <br>
 
@@ -14,27 +17,25 @@
         </a>
     @endif
 
-    <br>
-    <h2>Lista de textos</h2>
+    <div class="container">
+        <h2>Listas de textos</h2>
+        <ul class="responsive-table">
+            <li class="table-header">
+                <div class="col col-1">Id</div>
+                <div class="col col-2">Título</div>
+                <div class="col col-3">Visualizações</div>
+                <div class="col col-4"  style="text-align: center">Likes</div>
+            </li>
 
-    <table border="1">
-        <tr>
-            <th>Id</th>
-            <th>Título</th>
-            <th>Visualizações</th>
-            <th>Likes</th>
-        </tr>
-
-        @foreach($texts as $text)
-        <tr>
-            <td>{{$text->id}}</td>
-            <td><a href="{{route('textos.info', $text->id)}}">{{$text->titulo}}</a></td>
-            <td>{{$text->visualizacoes}}</td>
-            <td>{{$text->likes}}</td>
-        </tr>
-        @endforeach
-
-    </table>
-
+            @foreach($texts as $text)
+            <li class="table-row">
+                <div class="col col-1">{{$text->id}}</div>
+                <div class="col col-2"><a href="{{route('textos.info', $text->id)}}">{{$text->titulo}}</a></div>
+                <div class="col col-3" style="text-align: center">{{$text->visualizacoes}}</div>
+                <div class="col col-4" style="text-align: center">{{$text->likes}}</div>
+            </li>
+            @endforeach
+        </ul>
+    </div>
 
 @endsection
