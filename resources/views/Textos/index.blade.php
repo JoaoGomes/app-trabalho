@@ -1,24 +1,28 @@
 @extends('templates.layout')
 @section('title', 'Lista de textos')
 @section('content')
-    <h1>Lista de textos</h1>
+    
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}" >
 
-    <table border="1">
-        <tr style="padding: 15px; font-size: 25px">
-            <th style="padding: 5px">Título</th>
-            <th style="padding: 5px">Autor</th>
-            <th style="padding: 5px">Visualizações</th>
-            <th style="padding: 5px">Likes</th>
-        </tr>
+<div class="container">
+  <h2>Lista de Textos</h2>
+  <ul class="responsive-table">
+    <li class="table-header">
+      <div class="col col-1">Título</div>
+      <div class="col col-2">Autor</div>
+      <div class="col col-3">Visualizações</div>
+      <div class="col col-4">Likes</div>
+    </li>
 
-        @foreach($textos as $texto)
-            <tr>
-                <td style="align: center"><a href="{{route('textos.info', $texto->id)}}">{{$texto->titulo}}</a></td>
-                <td style="text-align:center"><a href="{{route('usuarios.profile', $texto->id_author)}}">{{$texto->author}}</a></td>
-                <td style="text-align:center">{{$texto->visualizacoes}}</td>
-                <td style="text-align:center"> {{$texto->likes}} </td>
-            </tr>
-        @endforeach
-    </table>
+    @foreach($textos as $texto)
+    <li class="table-row">
+      <div class="col col-1" data-label="Job Id"><a href="{{route('textos.info', $texto->id)}}">{{$texto->titulo}}</a></div>
+      <div class="col col-2" data-label="Customer Name"><a href="{{route('usuarios.profile', $texto->id_author)}}">{{$texto->author}}</a></div>
+      <div class="col col-3" data-label="Amount">{{$texto->visualizacoes}}</div>
+      <div class="col col-4" data-label="Payment Status">{{$texto->likes}}</div>
+    </li>
+    @endforeach
+  </ul>
+</div>
 
 @endsection
