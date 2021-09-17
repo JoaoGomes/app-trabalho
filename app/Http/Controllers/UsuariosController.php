@@ -60,7 +60,11 @@ class UsuariosController extends Controller
         $user->imagem = $formulario->file('imagem')->store('','imagens');
 
         $user->save();
-
+        
+        // Logar logo após realizar cadastro
+        //$form = new Request();
+        //$form->session()->put('usuario', $user);
+        //return $this->login($user);
         return redirect()->route('home.root');
 
     }
@@ -73,7 +77,7 @@ class UsuariosController extends Controller
     public function view($id)
     {
         $user = Usuario::find($id);
-        $texts = Texto::select('id', 'titulo', 'visualizacoes', 'likes')->where('id_author', $id) -> get();
+        $texts = Texto::select('id', 'titulo', 'visualizacoes', 'likes')->where('id_author', $id)->orderBy('created_at', 'desc')-> get();
 
         return view('usuarios.view', ['id' => $id, 'user' => $user, 'texts' => $texts]);
     }

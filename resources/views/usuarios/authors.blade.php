@@ -17,7 +17,7 @@
                 <li class="table-row">
                     <div class="col col-1"><img style="vertical-align: middle; width: 50px; height: 50px; border-radius: 30%;" src="{{asset('img/' . $user->imagem)}}"></div>
                     <div class="col col-2"><a href="{{route('usuarios.profile', $user->id)}}">{{$user->nome}}</a></div>
-                    <div class="col col-3" style="text-align: left">0</div>
+                    <div class="col col-3" style="text-align: center">0</div>
                 </li>
             @endforeach
         </ul>
